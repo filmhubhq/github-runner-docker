@@ -25,7 +25,7 @@ env:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       packages: write
@@ -46,9 +46,9 @@ jobs:
           cosign-release: 'v1.13.1'
 
 
-      # Workaround: https://github.com/docker/build-push-action/issues/461
-      - name: Setup Docker buildx
-        uses: docker/setup-buildx-action@79abd3f86f79a9d68a23c75a09a9a85889262adf
+      - name: Docker Setup Buildx
+        uses: docker/setup-buildx-action@v2.5.0
+    
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
